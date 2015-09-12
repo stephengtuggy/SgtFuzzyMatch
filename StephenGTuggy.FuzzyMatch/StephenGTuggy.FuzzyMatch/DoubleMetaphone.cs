@@ -18,7 +18,7 @@
  * Current Version: 1.1.0
  * Revision History:
  * 	1.0.0 - ajn - First release
- * 	1.1.0 - sgt - Second release
+ * 	1.1.0 - sgt - Fork
  * 
  * This implementation, and optimizations, Copyright (C) 2003, Adam J. Nelson, and Copyright (C) 2015, Stephen G. Tuggy.
  * The Double Metaphone algorithm was written by Lawrence Phillips, and is 
