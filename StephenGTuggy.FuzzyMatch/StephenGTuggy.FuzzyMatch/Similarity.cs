@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace StephenGTuggy.FuzzyMatch
 {
-    public interface IStringSimilarity : ISimilarity<string>
+    public static class Similarity
     {
+        public const float MinSimilarity = 0.0F;
+        public const float MaxSimilarity = 1.0F;
     }
 }

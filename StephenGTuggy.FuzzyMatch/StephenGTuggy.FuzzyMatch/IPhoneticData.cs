@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace StephenGTuggy.FuzzyMatch
 {
-    public interface IStringSimilarity : ISimilarity<string>
+    public interface IPhoneticData
     {
+        IList<string> GetPhoneticData(string p_Value);
     }
 }
