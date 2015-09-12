@@ -39,14 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EncryptedBytesSimilarity.cs" />
-    <Compile Include="IEditDistance.cs" />
-    <Compile Include="IPhoneticData.cs" />
-    <Compile Include="ISimilarity.cs" />
-    <Compile Include="IStringSimilarity.cs" />
+    <Compile Include="DoubleMetaphone.cs" />
+    <Compile Include="EncryptedBytesSimilarityCalc.cs" />
+    <Compile Include="IEditDistanceCalc.cs" />
+    <Compile Include="ISimilarityCalc.cs" />
+    <Compile Include="IStringSimilarityCalc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Similarity.cs" />
-    <Compile Include="StringSimilarityByEditDistance.cs" />
+    <Compile Include="SimilarityCalc.cs" />
+    <Compile Include="StringSimilarityCalcByEditDistance.cs" />
+    <Compile Include="WordSimilarityCalcDoubleMetaphone.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
