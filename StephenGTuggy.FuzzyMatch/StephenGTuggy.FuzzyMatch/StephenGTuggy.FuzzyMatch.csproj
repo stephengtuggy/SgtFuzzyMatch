@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DoubleMetaphone.cs" />
+    <Compile Include="DoubleMetaphoneSimilarityCalc.cs" />
     <Compile Include="EncryptedBytesSimilarityCalc.cs" />
     <Compile Include="IEditDistanceCalc.cs" />
     <Compile Include="ISimilarityCalc.cs" />
