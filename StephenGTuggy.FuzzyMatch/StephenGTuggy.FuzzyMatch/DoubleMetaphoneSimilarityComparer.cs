@@ -22,7 +22,7 @@ using nullpointer.Metaphone;
 
 namespace StephenGTuggy.FuzzyMatch
 {
-    public class DoubleMetaphoneSimilarityCalc : ISimilarityCalc<DoubleMetaphone>
+    public class DoubleMetaphoneSimilarityComparer : ISimilarityComparer<DoubleMetaphone>
     {
         public const float PRIMARY_KEYS_EQUAL = 0.98F;
         public const float PRIMARY_KEY_EQUALS_ALTERNATE = 0.90F;
@@ -33,7 +33,7 @@ namespace StephenGTuggy.FuzzyMatch
             if ((p_ValueA.PrimaryKey == p_ValueB.PrimaryKey)
                 && (p_ValueA.AlternateKey == p_ValueB.AlternateKey))
             {
-                return SimilarityCalc.MAX_POSSIBLE_SIMILARITY;
+                return Similarity.MAX_POSSIBLE_SIMILARITY;
             }
             else if (p_ValueA.PrimaryKey.Equals(p_ValueB.PrimaryKey))
             {
@@ -57,7 +57,7 @@ namespace StephenGTuggy.FuzzyMatch
             }
             else
             {
-                return SimilarityCalc.MIN_POSSIBLE_SIMILARITY;
+                return Similarity.MIN_POSSIBLE_SIMILARITY;
             }
         }
     }

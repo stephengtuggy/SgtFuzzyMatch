@@ -40,15 +40,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DoubleMetaphone.cs" />
-    <Compile Include="DoubleMetaphoneSimilarityCalc.cs" />
-    <Compile Include="EncryptedBytesSimilarityCalc.cs" />
-    <Compile Include="IEditDistanceCalc.cs" />
-    <Compile Include="ISimilarityCalc.cs" />
-    <Compile Include="IStringSimilarityCalc.cs" />
+    <Compile Include="DoubleMetaphoneSimilarityComparer.cs" />
+    <Compile Include="EncryptedBytesSimilarityComparer.cs" />
+    <Compile Include="IEditDistanceCalculator.cs" />
+    <Compile Include="ISimilarityComparer.cs" />
+    <Compile Include="IStringSimilarityComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimilarityCalc.cs" />
-    <Compile Include="StringSimilarityCalcByEditDistance.cs" />
-    <Compile Include="WordSimilarityCalcDoubleMetaphone.cs" />
+    <Compile Include="Similarity.cs" />
+    <Compile Include="StringSimilarityComparerByEditDistance.cs" />
+    <Compile Include="WordSimilarityComparerDoubleMetaphone.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

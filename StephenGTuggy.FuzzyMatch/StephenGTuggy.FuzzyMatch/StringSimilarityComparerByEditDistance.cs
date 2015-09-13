@@ -20,26 +20,33 @@
 
 namespace StephenGTuggy.FuzzyMatch
 {
-    public class StringSimilarityCalcByEditDistance : IStringSimilarityCalc
+    public class StringSimilarityComparerByEditDistance : IStringSimilarityComparer
     {
-        private readonly IEditDistanceCalc _EditDistanceCalc;
-        public IEditDistanceCalc EditDistanceCalc
+        private readonly IEditDistanceCalculator _EditDistanceCalculator;
+        public IEditDistanceCalculator EditDistanceCalculator
         {
             get
             {
-                return _EditDistanceCalc;
+                return _EditDistanceCalculator;
             }
         }
 
-        public StringSimilarityCalcByEditDistance(IEditDistanceCalc p_EditDistanceCalc)
+        public StringSimilarityComparerByEditDistance(IEditDistanceCalculator p_EditDistanceCalc)
         {
-            _EditDistanceCalc = p_EditDistanceCalc;
+            _EditDistanceCalculator = p_EditDistanceCalc;
         }
         
         public float CalcSimilarity(string p_ValueA, string p_ValueB)
         {
-            return (float)EditDistanceCalc.CalcEditDistance(p_ValueA, p_ValueB)
-                / (float)EditDistanceCalc.GetMaxPossibleEditDistance(p_ValueA, p_ValueB);
+            if (p_ValueA == p_ValueB)
+            {
+                return Similarity.MAX_POSSIBLE_SIMILARITY;
+            }
+            else
+            {
+                return (float)EditDistanceCalculator.CalcEditDistance(p_ValueA, p_ValueB)
+                    / (float)EditDistanceCalculator.GetMaxPossibleEditDistance(p_ValueA, p_ValueB);
+            }
         }
     }
 }

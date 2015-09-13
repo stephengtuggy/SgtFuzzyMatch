@@ -18,11 +18,26 @@
  * <http://www.gnu.org/licenses/>.
  */
 
+using System.Linq;
+
 namespace StephenGTuggy.FuzzyMatch
 {
-    public static class SimilarityCalc
+    public class EncryptedBytesSimilarityComparer : ISimilarityComparer<byte[]>
     {
-        public const float MIN_POSSIBLE_SIMILARITY = 0.0F;
-        public const float MAX_POSSIBLE_SIMILARITY = 1.0F;
+        public float CalcSimilarity(byte[] p_ValueA, byte[] p_ValueB)
+        {
+            if ((p_ValueA == null) && (p_ValueB == null))
+            {
+                return Similarity.MAX_POSSIBLE_SIMILARITY;
+            }
+            else if (Enumerable.SequenceEqual(p_ValueA, p_ValueB))
+            {
+                return Similarity.MAX_POSSIBLE_SIMILARITY;
+            }
+            else
+            {
+                return Similarity.MIN_POSSIBLE_SIMILARITY;
+            }
+        }
     }
 }

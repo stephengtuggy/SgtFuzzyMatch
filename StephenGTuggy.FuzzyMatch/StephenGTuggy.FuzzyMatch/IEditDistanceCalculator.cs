@@ -18,25 +18,11 @@
  * <http://www.gnu.org/licenses/>.
  */
 
-using nullpointer.Metaphone;
-using System;
-
 namespace StephenGTuggy.FuzzyMatch
 {
-    public class WordSimilarityCalcDoubleMetaphone : IStringSimilarityCalc
+    public interface IEditDistanceCalculator
     {
-        private DoubleMetaphoneSimilarityCalc _DoubleMetaphoneSimilarityCalc = new DoubleMetaphoneSimilarityCalc();
-        
-        public float CalcSimilarity(string p_ValueA, string p_ValueB)
-        {
-            if (p_ValueA.Equals(p_ValueB, StringComparison.OrdinalIgnoreCase))
-            {
-                return SimilarityCalc.MAX_POSSIBLE_SIMILARITY;
-            }
-            
-            DoubleMetaphone l_DoubleMetaphoneA = new DoubleMetaphone(p_ValueA);
-            DoubleMetaphone l_DoubleMetaphoneB = new DoubleMetaphone(p_ValueB);
-            return _DoubleMetaphoneSimilarityCalc.CalcSimilarity(l_DoubleMetaphoneA, l_DoubleMetaphoneB);
-        }
+        int CalcEditDistance(string p_ValueA, string p_ValueB);
+        int GetMaxPossibleEditDistance(string p_ValueA, string p_ValueB);
     }
 }
