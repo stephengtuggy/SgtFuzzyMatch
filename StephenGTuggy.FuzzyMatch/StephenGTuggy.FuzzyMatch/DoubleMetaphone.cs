@@ -20,7 +20,7 @@
  * 	1.0.0 - ajn - First release
  * 	1.1.0 - sgt - Fork
  * 
- * This implementation, and optimizations, Copyright (C) 2003, Adam J. Nelson, and Copyright (C) 2015, Stephen G. Tuggy.
+ * This implementation, and optimizations, Copyright (C) 2003 and 2015, Adam J. Nelson and Stephen G. Tuggy.
  * The Double Metaphone algorithm was written by Lawrence Phillips, and is 
  * Copyright (c) 1998, 1999 by Lawrence Phillips.
  */
