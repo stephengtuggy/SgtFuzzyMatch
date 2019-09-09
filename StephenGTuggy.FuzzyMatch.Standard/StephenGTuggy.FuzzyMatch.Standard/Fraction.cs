@@ -17,11 +17,17 @@
  * along with SgtFuzzyMatch.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 namespace StephenGTuggy.FuzzyMatch
 {
-    public class Fraction
+    public struct Fraction
     {
-        long Numerator;
-        long Denominator;
+        public long Numerator { get; set; }
+        public long Denominator { get; set; }
+
+        public double ToDouble()
+        {
+            return (double)Numerator / (double)Denominator;
+        }
     }
 }
