@@ -54,6 +54,7 @@
     <Compile Include="Statistics\Variable.cs" />
     <Compile Include="StringSimilarityComparerByEditDistance.cs" />
     <Compile Include="WordSimilarityComparerDoubleMetaphone.cs" />
+    <Compile Include="Fraction.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
