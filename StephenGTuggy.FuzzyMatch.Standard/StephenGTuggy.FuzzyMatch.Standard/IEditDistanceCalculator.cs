@@ -1,5 +1,5 @@
 ﻿/**
- * Copyright (C) 2015-2016 Stephen G. Tuggy
+ * Copyright (C) 2015-2019 Stephen G. Tuggy
  * 
  * This file is part of SgtFuzzyMatch.
  *
