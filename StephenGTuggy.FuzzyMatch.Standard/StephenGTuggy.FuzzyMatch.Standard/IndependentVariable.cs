@@ -17,6 +17,7 @@
  * along with SgtFuzzyMatch.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 namespace StephenGTuggy.FuzzyMatch
 {
     public class IndependentVariable<T> : Variable<T>

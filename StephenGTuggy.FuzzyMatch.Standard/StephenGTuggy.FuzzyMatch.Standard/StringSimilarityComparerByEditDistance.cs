@@ -17,34 +17,25 @@
  * along with SgtFuzzyMatch.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 namespace StephenGTuggy.FuzzyMatch
 {
     public class StringSimilarityComparerByEditDistance : IStringSimilarityComparer
     {
-        private readonly IEditDistanceCalculator _EditDistanceCalculator;
-        public IEditDistanceCalculator EditDistanceCalculator
-        {
-            get
-            {
-                return _EditDistanceCalculator;
-            }
+        public IEditDistanceCalculator EditDistanceCalculator { get; set; }
+
+        public StringSimilarityComparerByEditDistance(IEditDistanceCalculator editDistanceCalc) {
+            EditDistanceCalculator = editDistanceCalc;
         }
 
-        public StringSimilarityComparerByEditDistance(IEditDistanceCalculator p_EditDistanceCalc)
-        {
-            _EditDistanceCalculator = p_EditDistanceCalc;
-        }
-        
-        public float CalcSimilarity(string p_ValueA, string p_ValueB)
-        {
-            if (p_ValueA == p_ValueB)
-            {
-                return Similarity.MAX_POSSIBLE_SIMILARITY;
-            }
-            else
-            {
-                return (float)EditDistanceCalculator.CalcEditDistance(p_ValueA, p_ValueB)
-                    / (float)EditDistanceCalculator.GetMaxPossibleEditDistance(p_ValueA, p_ValueB);
+        public Fraction CalcSimilarity(string valueA, string valueB) {
+            if (valueA == valueB) {
+                return Similarity.MAX_SIMILARITY_FRACTION;
+            } else {
+                return new Fraction {
+                    Numerator = EditDistanceCalculator.CalcEditDistance(valueA, valueB),
+                    Denominator = EditDistanceCalculator.GetMaxPossibleEditDistance(valueA, valueB)
+                };
             }
         }
     }

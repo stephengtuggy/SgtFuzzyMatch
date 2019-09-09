@@ -21,7 +21,9 @@ namespace StephenGTuggy.FuzzyMatch
 {
     public static class Similarity
     {
-        public const float MIN_POSSIBLE_SIMILARITY = 0.0F;
-        public const float MAX_POSSIBLE_SIMILARITY = 1.0F;
+        public const double MIN_SIMILARITY_DOUBLE = 0.0;
+        public const double MAX_SIMILARITY_DOUBLE = 1.0;
+        public static readonly Fraction MIN_SIMILARITY_FRACTION = new Fraction { Numerator = 0, Denominator = 1 };
+        public static readonly Fraction MAX_SIMILARITY_FRACTION = new Fraction { Numerator = 1, Denominator = 1 };
     }
 }

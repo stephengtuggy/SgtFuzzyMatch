@@ -17,11 +17,12 @@
  * along with SgtFuzzyMatch.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 namespace StephenGTuggy.FuzzyMatch
 {
     public interface IEditDistanceCalculator
     {
-        int CalcEditDistance(string p_ValueA, string p_ValueB);
-        int GetMaxPossibleEditDistance(string p_ValueA, string p_ValueB);
+        long CalcEditDistance(string valueA, string valueB);
+        long GetMaxPossibleEditDistance(string valueA, string valueB);
     }
 }

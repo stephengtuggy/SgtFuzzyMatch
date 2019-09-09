@@ -17,16 +17,17 @@
  * along with SgtFuzzyMatch.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 namespace StephenGTuggy.FuzzyMatch
 {
     public interface ISimilarityComparer<T>
     {
         /// <summary>
-        /// Returns a score between 0.0F and 1.0F, representing how similar the two given values are. 1.0F means that the values are an exact match; 0.0F means that the values are completely different.
+        /// Returns a score between 0.0 and 1.0, representing how similar the two given values are. 1.0 means that the values are an exact match; 0.0 means that the values are completely different.
         /// </summary>
-        /// <param name="p_ValueA">The first value to compare</param>
-        /// <param name="p_ValueB">The second value to compare with the first</param>
-        /// <returns>A float between 0.0F and 1.0F, representing the match percentage between <paramref name="p_ValueA"/> and <paramref name="p_ValueB"/></returns>
-        float CalcSimilarity(T p_ValueA, T p_ValueB);
+        /// <param name="valueA">The first value to compare</param>
+        /// <param name="valueB">The second value to compare with the first</param>
+        /// <returns>A <see cref="Fraction"/> between 0.0 and 1.0, representing the match percentage between <paramref name="valueA"/> and <paramref name="valueB"/></returns>
+        Fraction CalcSimilarity(T valueA, T valueB);
     }
 }
