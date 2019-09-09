@@ -1,5 +1,5 @@
-/**
- * Copyright (C) 2015-2018 Stephen G. Tuggy
+﻿/**
+ * Copyright (C) 2015-2019 Stephen G. Tuggy
  * 
  * This file is part of SgtFuzzyMatch.
  *
@@ -19,9 +19,9 @@
 
 namespace StephenGTuggy.FuzzyMatch
 {
-    public class Fraction
+    public static class Similarity
     {
-        long Numerator;
-        long Denominator;
+        public const float MIN_POSSIBLE_SIMILARITY = 0.0F;
+        public const float MAX_POSSIBLE_SIMILARITY = 1.0F;
     }
 }

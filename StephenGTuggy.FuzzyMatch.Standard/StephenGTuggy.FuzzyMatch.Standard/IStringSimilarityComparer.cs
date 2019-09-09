@@ -1,5 +1,5 @@
 ﻿/**
- * Copyright (C) 2015-2016 Stephen G. Tuggy
+ * Copyright (C) 2015-2019 Stephen G. Tuggy
  * 
  * This file is part of SgtFuzzyMatch.
  *
@@ -19,9 +19,7 @@
 
 namespace StephenGTuggy.FuzzyMatch
 {
-    public interface IEditDistanceCalculator
+    public interface IStringSimilarityComparer : ISimilarityComparer<string>
     {
-        int CalcEditDistance(string p_ValueA, string p_ValueB);
-        int GetMaxPossibleEditDistance(string p_ValueA, string p_ValueB);
     }
 }

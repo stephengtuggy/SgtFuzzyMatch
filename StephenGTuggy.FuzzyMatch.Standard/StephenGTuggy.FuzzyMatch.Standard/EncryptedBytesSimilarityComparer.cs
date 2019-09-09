@@ -1,5 +1,5 @@
 ﻿/**
- * Copyright (C) 2015-2016 Stephen G. Tuggy
+ * Copyright (C) 2015-2019 Stephen G. Tuggy
  * 
  * This file is part of SgtFuzzyMatch.
  *
@@ -17,9 +17,26 @@
  * along with SgtFuzzyMatch.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace StephenGTuggy.FuzzyMatch.Statistics
+using System.Linq;
+
+namespace StephenGTuggy.FuzzyMatch
 {
-    public class IndependentVariable<T> : Variable<T>
+    public class EncryptedBytesSimilarityComparer : ISimilarityComparer<byte[]>
     {
+        public float CalcSimilarity(byte[] p_ValueA, byte[] p_ValueB)
+        {
+            if ((p_ValueA == null) && (p_ValueB == null))
+            {
+                return Similarity.MAX_POSSIBLE_SIMILARITY;
+            }
+            else if (Enumerable.SequenceEqual(p_ValueA, p_ValueB))
+            {
+                return Similarity.MAX_POSSIBLE_SIMILARITY;
+            }
+            else
+            {
+                return Similarity.MIN_POSSIBLE_SIMILARITY;
+            }
+        }
     }
 }

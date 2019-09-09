@@ -1,5 +1,5 @@
 ﻿/**
- * Copyright (C) 2015-2016 Stephen G. Tuggy
+ * Copyright (C) 2015-2019 Stephen G. Tuggy
  * 
  * This file is part of SgtFuzzyMatch.
  *
@@ -17,15 +17,11 @@
  * along with SgtFuzzyMatch.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StephenGTuggy.FuzzyMatch.Statistics
+namespace StephenGTuggy.FuzzyMatch
 {
-    public class NaiveBayesClassifierIntVariables
+    public interface IEditDistanceCalculator
     {
+        int CalcEditDistance(string p_ValueA, string p_ValueB);
+        int GetMaxPossibleEditDistance(string p_ValueA, string p_ValueB);
     }
 }

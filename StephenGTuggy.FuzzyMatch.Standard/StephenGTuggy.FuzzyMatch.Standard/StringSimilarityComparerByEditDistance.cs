@@ -1,5 +1,5 @@
 ﻿/**
- * Copyright (C) 2015-2016 Stephen G. Tuggy
+ * Copyright (C) 2015-2019 Stephen G. Tuggy
  * 
  * This file is part of SgtFuzzyMatch.
  *
@@ -17,25 +17,34 @@
  * along with SgtFuzzyMatch.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System.Linq;
-
 namespace StephenGTuggy.FuzzyMatch
 {
-    public class EncryptedBytesSimilarityComparer : ISimilarityComparer<byte[]>
+    public class StringSimilarityComparerByEditDistance : IStringSimilarityComparer
     {
-        public float CalcSimilarity(byte[] p_ValueA, byte[] p_ValueB)
+        private readonly IEditDistanceCalculator _EditDistanceCalculator;
+        public IEditDistanceCalculator EditDistanceCalculator
         {
-            if ((p_ValueA == null) && (p_ValueB == null))
+            get
             {
-                return Similarity.MAX_POSSIBLE_SIMILARITY;
+                return _EditDistanceCalculator;
             }
-            else if (Enumerable.SequenceEqual(p_ValueA, p_ValueB))
+        }
+
+        public StringSimilarityComparerByEditDistance(IEditDistanceCalculator p_EditDistanceCalc)
+        {
+            _EditDistanceCalculator = p_EditDistanceCalc;
+        }
+        
+        public float CalcSimilarity(string p_ValueA, string p_ValueB)
+        {
+            if (p_ValueA == p_ValueB)
             {
                 return Similarity.MAX_POSSIBLE_SIMILARITY;
             }
             else
             {
-                return Similarity.MIN_POSSIBLE_SIMILARITY;
+                return (float)EditDistanceCalculator.CalcEditDistance(p_ValueA, p_ValueB)
+                    / (float)EditDistanceCalculator.GetMaxPossibleEditDistance(p_ValueA, p_ValueB);
             }
         }
     }
