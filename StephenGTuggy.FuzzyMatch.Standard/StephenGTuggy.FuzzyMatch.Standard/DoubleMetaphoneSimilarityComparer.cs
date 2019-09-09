@@ -17,46 +17,36 @@
  * along with SgtFuzzyMatch.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 using nullpointer.Metaphone;
+
 
 namespace StephenGTuggy.FuzzyMatch
 {
     public class DoubleMetaphoneSimilarityComparer : ISimilarityComparer<DoubleMetaphone>
     {
-        public const float PRIMARY_KEYS_EQUAL = 0.98F;
-        public const float PRIMARY_KEY_EQUALS_ALTERNATE = 0.90F;
-        public const float ALTERNATE_KEYS_EQUAL = 0.80F;
+        public static readonly Fraction PRIMARY_KEYS_EQUAL = new Fraction { Numerator = 98, Denominator = 100 };
+        public static readonly Fraction PRIMARY_KEY_EQUALS_ALTERNATE = new Fraction { Numerator = 90, Denominator = 100 };
+        public static readonly Fraction ALTERNATE_KEYS_EQUAL = new Fraction { Numerator = 80, Denominator = 100 };
 
-        public float CalcSimilarity(DoubleMetaphone p_ValueA, DoubleMetaphone p_ValueB)
-        {
-            if ((p_ValueA.PrimaryKey == p_ValueB.PrimaryKey)
-                && (p_ValueA.AlternateKey == p_ValueB.AlternateKey))
-            {
-                return Similarity.MAX_POSSIBLE_SIMILARITY;
-            }
-            else if (p_ValueA.PrimaryKey.Equals(p_ValueB.PrimaryKey))
-            {
+        public Fraction CalcSimilarity(DoubleMetaphone valueA, DoubleMetaphone valueB) {
+            if ((valueA.PrimaryKey == valueB.PrimaryKey)
+                && (valueA.AlternateKey == valueB.AlternateKey)) {
+                return Similarity.MAX_SIMILARITY_FRACTION;
+            } else if (valueA.PrimaryKey.Equals(valueB.PrimaryKey)) {
                 return PRIMARY_KEYS_EQUAL;
-            }
-            else if (!string.IsNullOrEmpty(p_ValueB.AlternateKey)
-                && p_ValueA.PrimaryKey.Equals(p_ValueB.AlternateKey))
-            {
+            } else if (!string.IsNullOrEmpty(valueB.AlternateKey)
+                  && valueA.PrimaryKey.Equals(valueB.AlternateKey)) {
                 return PRIMARY_KEY_EQUALS_ALTERNATE;
-            }
-            else if (!string.IsNullOrEmpty(p_ValueA.AlternateKey)
-                && p_ValueB.PrimaryKey.Equals(p_ValueA.AlternateKey))
-            {
+            } else if (!string.IsNullOrEmpty(valueA.AlternateKey)
+                  && valueB.PrimaryKey.Equals(valueA.AlternateKey)) {
                 return PRIMARY_KEY_EQUALS_ALTERNATE;
-            }
-            else if (!string.IsNullOrEmpty(p_ValueA.AlternateKey)
-                && !string.IsNullOrEmpty(p_ValueB.AlternateKey)
-                && p_ValueA.AlternateKey.Equals(p_ValueA.AlternateKey))
-            {
+            } else if (!string.IsNullOrEmpty(valueA.AlternateKey)
+                  && !string.IsNullOrEmpty(valueB.AlternateKey)
+                  && valueA.AlternateKey.Equals(valueA.AlternateKey)) {
                 return ALTERNATE_KEYS_EQUAL;
-            }
-            else
-            {
-                return Similarity.MIN_POSSIBLE_SIMILARITY;
+            } else {
+                return Similarity.MIN_SIMILARITY_FRACTION;
             }
         }
     }

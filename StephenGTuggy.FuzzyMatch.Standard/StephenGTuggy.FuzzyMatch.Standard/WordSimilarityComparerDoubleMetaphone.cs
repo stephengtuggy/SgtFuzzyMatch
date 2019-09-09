@@ -17,25 +17,25 @@
  * along with SgtFuzzyMatch.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 using nullpointer.Metaphone;
 using System;
+
 
 namespace StephenGTuggy.FuzzyMatch
 {
     public class WordSimilarityComparerDoubleMetaphone : IStringSimilarityComparer
     {
-        private DoubleMetaphoneSimilarityComparer _DoubleMetaphoneSimilarityComparer = new DoubleMetaphoneSimilarityComparer();
-        
-        public float CalcSimilarity(string p_ValueA, string p_ValueB)
-        {
-            if (p_ValueA.Equals(p_ValueB, StringComparison.OrdinalIgnoreCase))
-            {
-                return Similarity.MAX_POSSIBLE_SIMILARITY;
+        private readonly DoubleMetaphoneSimilarityComparer _doubleMetaphoneSimilarityComparer = new DoubleMetaphoneSimilarityComparer();
+
+        public Fraction CalcSimilarity(string valueA, string valueB) {
+            if (valueA.Equals(valueB, StringComparison.OrdinalIgnoreCase)) {
+                return Similarity.MAX_SIMILARITY_FRACTION;
             }
-            
-            DoubleMetaphone l_DoubleMetaphoneA = new DoubleMetaphone(p_ValueA);
-            DoubleMetaphone l_DoubleMetaphoneB = new DoubleMetaphone(p_ValueB);
-            return _DoubleMetaphoneSimilarityComparer.CalcSimilarity(l_DoubleMetaphoneA, l_DoubleMetaphoneB);
+
+            DoubleMetaphone dblMetaphoneA = new DoubleMetaphone(valueA);
+            DoubleMetaphone dblMetaphoneB = new DoubleMetaphone(valueB);
+            return _doubleMetaphoneSimilarityComparer.CalcSimilarity(dblMetaphoneA, dblMetaphoneB);
         }
     }
 }

@@ -17,11 +17,12 @@
  * along with SgtFuzzyMatch.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 namespace StephenGTuggy.FuzzyMatch
 {
     public class Variable<T>
     {
-        string Name { get; set; }
-        T Value { get; set; }
+        public string Name { get; set; }
+        public T Value { get; set; }
     }
 }
