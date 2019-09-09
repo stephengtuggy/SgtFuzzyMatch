@@ -25,8 +25,7 @@ namespace StephenGTuggy.FuzzyMatch
         public long Numerator { get; set; }
         public long Denominator { get; set; }
 
-        public double ToDouble()
-        {
+        public double ToDouble() {
             return (double)Numerator / (double)Denominator;
         }
     }
